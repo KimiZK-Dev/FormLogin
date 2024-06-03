@@ -1,0 +1,265 @@
+/* Import fonts */
+@font-face {
+    font-family: 'Poppins';
+    src: url('./DesignerVN-Poppins/DesignerVN-Poppins-Regular.ttf') format('truetype');
+}
+
+/* Variable */
+:root{
+    --clr: #0f3d63;
+    --clr2: #d4b5a6;
+    --clr3: #1e75d8;
+    --clr4: #87c9d4;
+}
+
+/* Original form */
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: 'Poppins', regular;
+}
+
+/* My body */
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background: url('./bg.jpeg') no-repeat center;
+    background-size: cover;
+}
+
+
+
+
+
+/* Header page */
+header{
+    position: fixed;
+    top: 0;
+    overflow: hidden;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2% 6%;
+}
+
+header .logo{
+    user-select: none;
+    color: var(--clr2);
+    font-size: 35px;
+}
+
+header .navigations, header .loginBtn{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    font-size: 17.4px;
+    font-weight: 600;
+}
+
+header .navigations .loginBtn{
+    cursor: pointer;
+    color: var(--clr4);
+    background: transparent;
+    padding: 10px 30px;
+    border: var(--clr4) solid 3px;
+    border-radius: 10px;
+    transition: 0.3s ease;
+}
+
+header .navigations .loginBtn:hover{
+    border: var(--clr2) solid 3px;
+    background: var(--clr2);
+    color: var(--clr);
+}
+
+header .navigations a{
+    position: relative;
+    color: var(--clr2);
+    transition: 0.3s ease;
+}
+
+header .navigations a::after{
+    content: ' ';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    border-radius: 3px;
+    transform: scaleX(0);
+    background: var(--clr3);
+    transition: transform 0.3s;
+    transform-origin: right;
+}
+
+header .navigations a:hover{
+    color: var(--clr3);
+}
+
+header .navigations a:hover::after{
+    transform-origin: left;
+    transform: scaleX(1);
+}
+
+header::before{
+    content: ' ';
+    position: absolute;
+    background: var(--clr);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 3px solid rgba(255, 255, 255, 0.18);
+    border-bottom-right-radius: 50px;
+    border-bottom-left-radius: 50px;
+    z-index: -9999;
+}
+
+
+
+
+
+/* Form login */
+.wrapper{
+    overflow: hidden;
+    position: relative;
+    font-weight: 600;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .5);
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 30px rgba(0,0,0,.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper .closePage{
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    right: 0;
+    padding: 8px 16px;
+    z-index: 9999;
+    font-size: 1.3em;
+    color: var(--clr);
+    border-bottom-left-radius: 15px;
+    background: var(--clr4);
+    transition: .3s ease;
+}
+
+.wrapper .closePage:hover{
+    color: var(--clr4);
+    background: var(--clr);
+}
+
+.wrapper form{
+    padding: 40px;
+}
+
+.wrapper form h2{
+    text-align: center;
+    font-size: 2em;
+    color: var(--clr4);
+}
+
+.wrapper form .input-box{
+    position: relative;
+    width: 100%;
+    margin: 30px 0;
+    border-bottom: 2px solid var(--clr);
+}
+
+.wrapper form .input-box label{
+    position: absolute;
+    top: 35%;
+    left: 5px;
+    font-size: 1em;
+    color: var(--clr);
+    pointer-events: none;
+    transform: translateY(-50%);
+    transition: 0.3s ease;
+    font-weight: 600;
+}
+
+.wrapper form .input-box input{
+    background: transparent;
+    border: none;
+    outline: none;
+    width: 90%;
+    height: 100%;
+    padding: 2px 5px;
+    font-weight: 500;
+    font-size: 1em;
+    color: var(--clr4);
+}
+
+.wrapper form .input-box input:focus ~ label, 
+.wrapper form .input-box input:valid ~ label{
+    top: -7px;
+}
+
+.wrapper form .input-box .icon{
+    position: absolute;
+    right: 5px;
+    top: -6px;
+    font-size: 1.2em;
+    color: var(--clr);
+}
+
+.wrapper form .remember-forgot{
+    color: var(--clr);
+    width: 300px;
+    margin: -15px 0 15px;
+    font-size: 0.9em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.wrapper form .remember-forgot input{
+    cursor: pointer;
+    accent-color: var(--clr);
+    margin-right: 3px;
+}
+
+.wrapper form .enterLogin{
+    width: 100%;
+    padding: 10px 0;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 1.1em;
+    color: var(--clr4);
+    margin-bottom: 20px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    background: var(--clr);
+    transition: .3s ease;
+}
+
+.wrapper form .enterLogin:hover{
+    color: var(--clr);
+    background: var(--clr4);
+}
+
+.wrapper form .login-register{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-size: 0.9em;
+}
+
+.wrapper form h2, 
+.wrapper form .login-register span{
+    user-select: none;
+}
